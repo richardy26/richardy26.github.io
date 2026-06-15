@@ -4,8 +4,7 @@
 **Affiliation:** [Your Institution/Lab Here][cite: 1]
 **Conference:** Submitted to the 10th Conference on Robot Learning (CoRL 2026)[cite: 1]
 
-**[📄 Read Paper]**  |  **[💻 View Code]**  |  **[🎥 Watch Video]** 
-*(Placeholder Links)*
+
 
 ---
 

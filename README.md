@@ -53,22 +53,146 @@ The locomotion controller is trained using PPO within MuJoCo XLA (MJX), utilizin
 
 ### Velocity Tracking & Stability
 
-**Table 3:** Benchmark comparison across commanded forward velocities. Each entry reports mean $\pm$ standard deviation over 20 rollouts. Lower CoT is better; higher survival and success are better. Success means the average post-warmup forward speed stays within $\pm$15% of the commanded speed.
+Benchmark comparison across commanded forward velocities. Each entry reports mean $\pm$ standard deviation over 20 rollouts. Lower CoT is better; higher survival and success are better. Success means the average post-warmup forward speed stays within $\pm$15% of the commanded speed.
 
-| $v_x$ | STL CoT $\downarrow$ | STL Survival $\uparrow$ | STL Success $\uparrow$ | Default CoT $\downarrow$ | Default Survival $\uparrow$ | Default Success $\uparrow$ | Best CoT $\downarrow$ | Best Survival $\uparrow$ | Best Success $\uparrow$ |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **0.3** | 2.1 ± 0.1 | **1.0 ± 0.0** | **1.0 ± 0.0** | 2.1 ± 0.1 | **1.0 ± 0.0** | 0.0 ± 0.0 | **1.2 ± 0.0** | **1.0 ± 0.0** | **1.0 ± 0.0** |
-| **0.5** | 1.5 ± 0.0 | **1.0 ± 0.0** | **1.0 ± 0.0** | 1.3 ± 0.0 | **1.0 ± 0.0** | 0.0 ± 0.0 | **1.0 ± 0.0** | **1.0 ± 0.0** | **1.0 ± 0.0** |
-| **0.7** | 1.2 ± 0.0 | **1.0 ± 0.0** | **1.0 ± 0.0** | 1.1 ± 0.0 | **1.0 ± 0.0** | 0.1 ± 0.2 | **1.0 ± 0.0** | **1.0 ± 0.0** | **1.0 ± 0.0** |
-| **1.0** | 1.2 ± 0.0 | **1.0 ± 0.0** | **1.0 ± 0.0** | 1.5 ± 0.0 | **1.0 ± 0.0** | 0.8 ± 0.4 | **1.2 ± 0.0** | **1.0 ± 0.0** | **1.0 ± 0.0** |
-| **1.3** | **1.1 ± 0.0** | **1.0 ± 0.0** | **1.0 ± 0.0** | 1.3 ± 0.1 | **1.0 ± 0.0** | 0.3 ± 0.5 | 1.3 ± 0.0 | **1.0 ± 0.0** | **1.0 ± 0.0** |
-| **1.6** | **1.0 ± 0.0** | **1.0 ± 0.0** | **1.0 ± 0.0** | 1.2 ± 0.0 | 1.0 ± 0.2 | 0.3 ± 0.4 | 1.4 ± 0.0 | **1.0 ± 0.0** | **1.0 ± 0.0** |
-| **1.9** | **1.1 ± 0.0** | **1.0 ± 0.0** | **1.0 ± 0.0** | 1.2 ± 0.1 | 0.5 ± 0.5 | 0.0 ± 0.0 | 1.4 ± 0.0 | **1.0 ± 0.0** | **1.0 ± 0.0** |
-| **2.0** | **1.1 ± 0.0** | **1.0 ± 0.0** | **1.0 ± 0.0** | 1.3 ± 0.1 | 0.5 ± 0.5 | 0.0 ± 0.0 | 1.4 ± 0.0 | **1.0 ± 0.0** | 0.1 ± 0.2 |
-| **2.1** | **1.1 ± 0.0** | **1.0 ± 0.0** | **1.0 ± 0.0** | 1.3 ± 0.1 | 0.3 ± 0.4 | 0.0 ± 0.0 | 1.4 ± 0.0 | **1.0 ± 0.0** | 0.0 ± 0.0 |
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">$v_x$</th>
+      <th colspan="3" align="center">STL-based reward</th>
+      <th colspan="3" align="center">Heuristic-default</th>
+      <th colspan="3" align="center">Heuristic-best</th>
+    </tr>
+    <tr>
+      <th align="center">CoT &darr;</th>
+      <th align="center">Survival &uarr;</th>
+      <th align="center">Success &uarr;</th>
+      <th align="center">CoT &darr;</th>
+      <th align="center">Survival &uarr;</th>
+      <th align="center">Success &uarr;</th>
+      <th align="center">CoT &darr;</th>
+      <th align="center">Survival &uarr;</th>
+      <th align="center">Success &uarr;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">0.3</td>
+      <td align="center">2.1 &plusmn; 0.1</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">2.1 &plusmn; 0.1</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">0.0 &plusmn; 0.0</td>
+      <td align="center"><b>1.2 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+    </tr>
+    <tr>
+      <td align="center">0.5</td>
+      <td align="center">1.5 &plusmn; 0.0</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">1.3 &plusmn; 0.0</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">0.0 &plusmn; 0.0</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+    </tr>
+    <tr>
+      <td align="center">0.7</td>
+      <td align="center">1.2 &plusmn; 0.0</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">1.1 &plusmn; 0.0</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">0.1 &plusmn; 0.2</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+    </tr>
+    <tr>
+      <td align="center">1.0</td>
+      <td align="center">1.2 &plusmn; 0.0</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">1.5 &plusmn; 0.0</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">0.8 &plusmn; 0.4</td>
+      <td align="center"><b>1.2 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+    </tr>
+    <tr>
+      <td align="center">1.3</td>
+      <td align="center"><b>1.1 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">1.3 &plusmn; 0.1</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">0.3 &plusmn; 0.5</td>
+      <td align="center">1.3 &plusmn; 0.0</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+    </tr>
+    <tr>
+      <td align="center">1.6</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">1.2 &plusmn; 0.0</td>
+      <td align="center">1.0 &plusmn; 0.2</td>
+      <td align="center">0.3 &plusmn; 0.4</td>
+      <td align="center">1.4 &plusmn; 0.0</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+    </tr>
+    <tr>
+      <td align="center">1.9</td>
+      <td align="center"><b>1.1 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">1.2 &plusmn; 0.1</td>
+      <td align="center">0.5 &plusmn; 0.5</td>
+      <td align="center">0.0 &plusmn; 0.0</td>
+      <td align="center">1.4 &plusmn; 0.0</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+    </tr>
+    <tr>
+      <td align="center">2.0</td>
+      <td align="center"><b>1.1 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">1.3 &plusmn; 0.1</td>
+      <td align="center">0.5 &plusmn; 0.5</td>
+      <td align="center">0.0 &plusmn; 0.0</td>
+      <td align="center">1.4 &plusmn; 0.0</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">0.1 &plusmn; 0.2</td>
+    </tr>
+    <tr>
+      <td align="center">2.1</td>
+      <td align="center"><b>1.1 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">1.3 &plusmn; 0.1</td>
+      <td align="center">0.3 &plusmn; 0.4</td>
+      <td align="center">0.0 &plusmn; 0.0</td>
+      <td align="center">1.4 &plusmn; 0.0</td>
+      <td align="center"><b>1.0 &plusmn; 0.0</b></td>
+      <td align="center">0.0 &plusmn; 0.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
 
 * **100% Survival & Success:** The STL-based reward maintains perfect survival and command-tracking success at every tested velocity (up to 2.1 m/s).
 * **High-Speed Efficiency:** At speeds of 1.3 m/s and above, the STL policy achieves the lowest Cost of Transportation (CoT) by successfully transitioning into a mechanically suitable bound gait, whereas static heuristic baselines continue to force a less efficient trot.
+
+---
 
 ---
 

@@ -40,10 +40,10 @@ We compile trajectory datasets from specialized models corresponding to low-spee
 We define fixed PSTL templates for three locomotion modes, fitting parameters using empirical quantiles from the expert datasets. 
 * **Walk-Trot:** Characterized by support-rich diagonal locomotion with no flight.
 * **Trot:** Characterized by dominant diagonal 2-contact support.
-* **Bound:** High-speed pair-synchronized running where forelegs and hind legs move in phase. For example, the bound mode actively suppresses trot-like diagonal support patterns using the formula: $G_{\mathcal{W}_{B}}(p_{diag2} \le p_{diag2,max})$.
+* **Bound:** High-speed pair-synchronized running where forelegs and hind legs move in phase. For example, the bound mode actively suppresses trot-like diagonal support patterns using the formula: G<sub>W<sub>B</sub></sub>(p<sub>diag2</sub> &le; p<sub>diag2,max</sub>).
 
 ### 3. Hierarchical Reward Machine
-The final reward is derived from the quantitative robustness of the active specification over a finite horizon. The active locomotion mode $g(t) \in \{W,T,B\}$ is selected dynamically based on the commanded forward velocity $v_{x}^{cmd}$. The scalar reward aggregates safety, tracking, and gait structure robustness alongside a torque-effort penalty.
+The final reward is derived from the quantitative robustness of the active specification over a finite horizon. The active locomotion mode g(t) &isin; {W, T, B} is selected dynamically based on the commanded forward velocity v<sub>x</sub><sup>cmd</sup>. The scalar reward aggregates safety, tracking, and gait structure robustness alongside a torque-effort penalty.
 
 ---
 
@@ -58,7 +58,7 @@ Benchmark comparison across commanded forward velocities. Each entry reports mea
 <table>
   <thead>
     <tr>
-      <th rowspan="2">$v_x$</th>
+      <th rowspan="2">v<sub>x</sub></th>
       <th colspan="3" align="center">STL-based reward</th>
       <th colspan="3" align="center">Heuristic-default</th>
       <th colspan="3" align="center">Heuristic-best</th>
@@ -198,10 +198,10 @@ Benchmark comparison across commanded forward velocities. Each entry reports mea
 
 <div align="center">
 
-**Trot Gait ($v_{x} = 1.3$ m/s)**
+**Trot Gait (v<sub>x</sub> = 1.3 m/s)**
 <video src="assets/trot.mp4" controls autoplay loop muted width="80%"></video>
 
-**Bound Gait ($v_{x} = 1.8$ m/s)**
+**Bound Gait (v<sub>x</sub> = 1.8 m/s)**
 <video src="assets/bound.mp4" controls autoplay loop muted width="80%"></video>
 
 </div>

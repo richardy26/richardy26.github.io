@@ -4,8 +4,6 @@
 
 **Anonymous Author(s)**
 
-*Affiliation | Address | Email*
-
 Submitted to the 10th Conference on Robot Learning (CoRL 2026)
 
 <img src="assets/quadruped%20model.png" width="500" alt="Barkour Quadruped Model">
@@ -75,8 +73,6 @@ The locomotion controller is trained using PPO within MuJoCo XLA (MJX), utilizin
 ---
 
 ##   Locomotion Regimes
-
-> *[Developer Note: Replace the src paths below with the actual paths to your video files]*
 
 <div align="center">
 

@@ -53,7 +53,7 @@ The locomotion controller is trained using PPO within MuJoCo XLA (MJX), utilizin
 
 ### Velocity Tracking & Stability
 
-Benchmark comparison across commanded forward velocities. Each entry reports mean $\pm$ standard deviation over 20 rollouts. Lower CoT is better; higher survival and success are better. Success means the average post-warmup forward speed stays within $\pm$15% of the commanded speed.
+Benchmark comparison across commanded forward velocities. Each entry reports mean $\pm$ standard deviation over 20 rollouts. Lower CoT is better; higher survival and success are better. Success means the average post-warmup forward speed stays within 15% of the commanded speed.
 
 <table>
   <thead>

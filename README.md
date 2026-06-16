@@ -8,7 +8,7 @@
 
 Submitted to the 10th Conference on Robot Learning (CoRL 2026)
 
-**[📄 Read Paper](#)** |  **[💻 View Code](#)** |  **[🎥 Watch Video](#)** <img src="assets/quadruped%20model.png" width="500" alt="Barkour Quadruped Model">
+<img src="assets/quadruped%20model.png" width="500" alt="Barkour Quadruped Model">
 
 </div>
 
@@ -16,13 +16,11 @@ Submitted to the 10th Conference on Robot Learning (CoRL 2026)
 
 ## Abstract
 
-Reinforcement learning (RL) for quadruped locomotion commonly depends on fixed, hand-crafted, and Markovian reward functions that limit both interpretability of learned policies and lack explicit control over gait behaviors. We introduce a framework where distinct gaits are specified using parameterized constraints expressed in Signal Temporal Logic (STL). These include safety bounds, gait synchronization constraints, command tracking, and actuation bounds. 
-
-From these specifications, we develop a reward shaping mechanism that provides learning agents a dense, continuous reward landscape that encodes desired behavior. We define parametric STL templates for three speed regimes (walking-trot, trot, bound), calibrate their parameters from reference rollouts, and compute rewards using smooth approximations of STL robustness over the rollouts. The generated rewards can be used to provide shaped gradients compatible with Proximal Policy Optimization (PPO). We instantiate the approach on Google’s Barkour quadruped robot in MuJoCo XLA (MJX). We show that compared to a baseline of hand-crafted rewards, the STL-shaped rewards yield tighter velocity tracking and more stable training.
+Reinforcement learning (RL) for quadruped locomotion commonly relies on fixed, hand-crafted, and Markovian reward functions, which limit the interpretability of learned policies and provide no explicit control over gait behaviors. We introduce a framework in which distinct gaits are specified using parameterized constraints expressed in Signal Temporal Logic (STL), including safety bounds, gait synchronization constraints, command tracking objectives, and actuation limits. From these specifications, we develop a reward-shaping mechanism that provides learning agents with a dense and continuous reward landscape that encodes the desired behavior. We define parametric STL templates for three speed regimes—walking-trot, trot, and bound—calibrate their parameters from reference rollouts, and compute rewards using smooth approximations of STL robustness over these rollouts. The resulting rewards provide shaped gradients that are compatible with Proximal Policy Optimization (PPO). We instantiate the approach on Google’s Barkour quadruped robot in MuJoCo XLA (MJX), leveraging simulator parallelization to accelerate training and domain randomization to improve policy robustness. Experimental results show that, compared to conventional hand-crafted rewards, STL-shaped rewards achieve tighter velocity tracking and more stable training performance.
 
 ---
 
-## 📌 Introduction & Motivation
+##  Introduction & Motivation
 
 Classical model-based control approaches, such as differential dynamic programming (DDP) and model predictive control (MPC), enable impressive behaviors but rely on accurate system models and complex cost functions. Deep RL pipelines address command tracking and stability through engineered rewards, curriculum learning, and domain randomization, but these rewards are often difficult to interpret and provide indirect control over specific contact-sequence structures. 
 
@@ -30,7 +28,7 @@ Our framework addresses multi-gait locomotion (walking-trot $\rightarrow$ trot $
 
 ---
 
-## ⚙️ Methodology
+##   Methodology
 
 Our framework combines interpretable specification-based design with the scalability of deep RL. The reward component corresponds directly to human-readable requirements.
 
@@ -51,7 +49,7 @@ The final reward is derived from the quantitative robustness of the active speci
 
 ---
 
-## 📊 Experimental Results
+##   Experimental Results
 
 The locomotion controller is trained using PPO within MuJoCo XLA (MJX), utilizing domain randomization over friction and actuator parameters to robustify the learned policies. 
 
@@ -76,7 +74,7 @@ The locomotion controller is trained using PPO within MuJoCo XLA (MJX), utilizin
 
 ---
 
-## 🎥 Locomotion Regimes
+##   Locomotion Regimes
 
 > *[Developer Note: Replace the src paths below with the actual paths to your video files]*
 

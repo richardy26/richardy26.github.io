@@ -2,9 +2,15 @@
 
 <h1>Learning Gait-Aware Quadruped Locomotion with Temporal Logic Specifications</h1>
 
-<p><b>Anonymous Author(s)</b></p>
+<p><b>Authors:</b> Anonymous Author(s) | <b>Presentation By:</b> Merve Atasever</p>
 
 <p>Submitted to the 10th Conference on Robot Learning (CoRL 2026)</p>
+
+<p>
+  <b><a href="#">📄 Read Paper</a></b> | 
+  <b><a href="#">💻 View Code</a></b> | 
+  <b><a href="#">🎥 Watch Video</a></b>
+</p>
 
 <img src="assets/quadruped%20model.png" width="500" alt="Barkour Quadruped Model">
 
@@ -189,8 +195,6 @@ Benchmark comparison across commanded forward velocities. Each entry reports mea
 
 <br>
 
-* **100% Survival & Success:** The STL-based reward maintains perfect survival and command-tracking success at every tested velocity (up to 2.1 m/s).
-* **High-Speed Efficiency:** At speeds of 1.3 m/s and above, the STL policy achieves the lowest Cost of Transportation (CoT) by successfully transitioning into a mechanically suitable bound gait, whereas static heuristic baselines continue to force a less efficient trot.
 
 ---
 
@@ -198,13 +202,17 @@ Benchmark comparison across commanded forward velocities. Each entry reports mea
 
 <div align="center">
 
-**Walk-Trot Gait (v<sub>x</sub> = 0.4 m/s)**
+<p><b>Walk-Trot Gait (v<sub>x</sub> = 0.4 m/s)</b></p>
 <video src="assets/0.4%20vel%20-%20walk.mp4" controls autoplay loop muted width="80%"></video>
 
-**Trot Gait (v<sub>x</sub> = 1.2 m/s)**
+<br>
+
+<p><b>Trot Gait (v<sub>x</sub> = 1.2 m/s)</b></p>
 <video src="assets/1.2%20vel%20-%20trot.mp4" controls autoplay loop muted width="80%"></video>
 
-**Bound Gait (v<sub>x</sub> = 1.9 m/s)**
+<br>
+
+<p><b>Bound Gait (v<sub>x</sub> = 1.9 m/s)</b></p>
 <video src="assets/1.9%20vel%20-%20bound.mp4" controls autoplay loop muted width="80%"></video>
 
 </div>

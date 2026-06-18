@@ -53,7 +53,7 @@ The locomotion controller is designed for **Google's Barkour vb quadruped robot*
 
 ### Velocity Tracking & Stability
 
-Benchmark comparison across commanded forward velocities. Each entry reports mean &plusmn; standard deviation over 20 rollouts. Lower CoT is better; higher survival and success are better. Success means the average post-warmup forward speed stays within 15% of the commanded speed.
+Benchmark comparison across commanded forward velocities. Each entry reports mean &plusmn; standard deviation over 20 rollouts. Lower CoT is better; higher survival and success are better. Success means the average post-warmup forward speed stays within &plusmn;15% of the commanded speed.
 
 <table>
   <thead>
@@ -188,9 +188,6 @@ Benchmark comparison across commanded forward velocities. Each entry reports mea
 </table>
 
 <br>
-
-* **100% Survival & Success:** The STL-based reward maintains perfect survival and command-tracking success at every tested velocity (up to 2.1 m/s).
-* **High-Speed Efficiency:** At speeds of 1.3 m/s and above, the STL policy achieves the lowest Cost of Transportation (CoT) by successfully transitioning into a mechanically suitable bound gait, whereas static heuristic baselines continue to force a less efficient trot.
 
 <hr>
 

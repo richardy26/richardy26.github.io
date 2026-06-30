@@ -16,12 +16,13 @@
 
 Reinforcement learning (RL) for quadruped locomotion commonly relies on fixed, hand-crafted, and Markovian reward functions, which limit the interpretability of learned policies and provide no explicit control over gait behaviors. We introduce a framework in which distinct gaits are specified using parameterized constraints expressed in Signal Temporal Logic (STL), including safety bounds, gait synchronization constraints, command tracking objectives, and actuation limits. From these specifications, we develop a reward-shaping mechanism that provides learning agents with a dense and continuous reward landscape that encodes the desired behavior. We define parametric STL templates for three speed regimes (walking-trot, trot, and bound) calibrate their parameters from reference rollouts, and compute rewards using smooth approximations of STL robustness over these rollouts. The resulting rewards provide shaped gradients that are compatible with Proximal Policy Optimization (PPO). We instantiate the approach on Google’s Barkour quadruped robot in MuJoCo XLA (MJX), leveraging simulator parallelization to accelerate training and domain randomization to improve policy robustness. Experimental results show that, compared to conventional hand-crafted rewards, STL-shaped rewards achieve tighter velocity tracking and more stable training performance.
 
-<hr>
+<br>
 
 <div align="center">
 <img src="assets/pipeline.png" width="800" alt="Algorithm Pipeline">
 </div>
 
+<br>
 <hr>
 
 ## Methodology
@@ -187,7 +188,7 @@ Benchmark comparison across commanded forward velocities. Each entry reports mea
 
 <br>
 
-<p><b>Table 6: Evaluation under mixed velocity commands.</b> We compare the learned unified model with the heuristic-best baseline across commanded forward velocities while additionally sampling lateral-velocity and yaw-rate commands from $(v_y^* \in [-0.4, 0.4] \text{ m s}^{-1})$ and $(\omega_z^* \in [-0.4, 0.4] \text{ rad s}^{-1})$, respectively. This setting evaluates robustness beyond straight-line forward locomotion. Lower CoT is better; higher survival and success rates are better.</p>
+<p><b>Table 6: Evaluation under mixed velocity commands.</b> We compare the learned unified model with the heuristic-best baseline across commanded forward velocities while additionally sampling lateral-velocity and yaw-rate commands from (v<sub>y</sub><sup>*</sup> &isin; [-0.4, 0.4] m s<sup>-1</sup>) and (&omega;<sub>z</sub><sup>*</sup> &isin; [-0.4, 0.4] rad s<sup>-1</sup>), respectively. This setting evaluates robustness beyond straight-line forward locomotion. Lower CoT is better; higher survival and success rates are better.</p>
 
 <table>
   <thead>

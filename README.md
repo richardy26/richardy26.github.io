@@ -316,4 +316,4 @@ Benchmark comparison across commanded forward velocities. Each entry reports mea
 
 <hr>
 
-## Citation dont chnage anything yet, just keep this in mind as the old webpage
+## Citation
